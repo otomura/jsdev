@@ -2,24 +2,26 @@ MyApp.Views.MainView = Backbone.View.extend({
   
   el: "#mainview",
   
-  tmpl: _.template($("#main_template").html()),
-  
   initialize: function() {
-    //this.$el.html("<h1>hogeeeeeeeeeeeeeeeeeeeeeeee</h1>");
     _.bindAll(this, 'print', 'render');
     MyApp.mediator.on('list_switch', this.print);
     MyApp.mediator.on('reset', this.render);
+    this.$tmpl1 = _.template($("#main_1").html());
+    this.$tmpl2 = _.template($("#main_2").html());
     this.render();
   },
   
   render : function(){
-  	console.log("とんできたrender");
-  	this.$el.html(this.tmpl());
+  	this.$el.html(this.$tmpl1());
   },
   
   print : function(id){
   	console.log("とんできた " + id);
-  	this.$el.html("<h1>とんできた " + id + "</h1>");
+  	if(id == 0){
+  		this.$el.html(this.$tmpl1());
+  	}else{
+  		this.$el.html(this.$tmpl2());
+  	}
   },
   
   clicked : function(event){
