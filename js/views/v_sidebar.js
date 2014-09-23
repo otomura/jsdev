@@ -21,8 +21,8 @@ MyApp.Views.SideBar = Backbone.View.extend({
   clicked : function(event){
       $("li").removeClass("active");
       $(event.currentTarget).addClass("active");
-      console.log($(event.currentTarget).index());
-      Backbone.trigger('list_switch', $(event.currentTarget).index());
+      selected = $(event.currentTarget).find("a").data("id");
+      Backbone.trigger('sidebar:selected', selected);
   }
 
   

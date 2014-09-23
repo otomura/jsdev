@@ -22,7 +22,7 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	  <div class="container-fluid">
 		<div class="navbar-header">
-			<a id="brand" class="navbar-brand" href="#">スケジュール</a>
+			<a id="brand" class="navbar-brand" href="#">レンタカー予約システム</a>
 		</div>
 	</nav>
 	<div class="container-fluid">
@@ -35,8 +35,9 @@
 	<!-- templates -->
 	<script type="text/template" id="sidebar_template">
 		<ul class="nav nav-sidebar">
-			<li class="active" id="menu1"><a href="#">Register</a></li>
-			<li id="menu2"><a href="#">Overview</a></li>
+			<li class="active"><a data-id="register" href="#">登録</a></li>
+			<li ><a data-id="carlist" href="#">一覧</a></li>
+			<li ><a href="#">予約（未作成）</a></li>
 		</ul>
 	</script>
 	<script type="text/template" id="main_register">
