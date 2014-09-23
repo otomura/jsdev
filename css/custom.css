@@ -1,4 +1,11 @@
 #sidebar li{
   background-color: #F8F8FF;
 }
+.navbar-default{
+  background-color: #000080;
+}
+.navbar-default .navbar-brand{
+  color : #FFF
+}
+
 * {font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
