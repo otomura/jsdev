@@ -4,23 +4,24 @@ MyApp.Views.MainView = Backbone.View.extend({
   
   initialize: function() {
     _.bindAll(this, 'print', 'render');
+    
     Backbone.on('list_switch', this.print);
     Backbone.on('reset_view', this.render);
-    this.$tmpl1 = _.template($("#main_1").html());
-    this.$tmpl2 = _.template($("#main_2").html());
+    
+    this.register_view = new MyApp.Views.MainRegisterView();
+    this.carlist_view = new MyApp.Views.CarListView();
     this.render();
   },
   
   render : function(){
-  	this.$el.html(this.$tmpl1());
+  	this.$el.html(this.register_view.el);
   },
   
   print : function(id){
-  	console.log("とんできた " + id);
   	if(id == 0){
-  		this.$el.html(this.$tmpl1());
+  		this.$el.html(this.register_view.el);
   	}else{
-  		this.$el.html(this.$tmpl2());
+  		this.$el.html(this.carlist_view.el);
   	}
   },
   
