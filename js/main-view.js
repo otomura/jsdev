@@ -5,11 +5,16 @@ MyApp.Views.MainView = Backbone.View.extend({
   tmpl: _.template($("#main_template").html()),
   
   initialize: function() {
-    this.$el.html(this.tmpl());
     //this.$el.html("<h1>hogeeeeeeeeeeeeeeeeeeeeeeee</h1>");
-    
-    _.bindAll(this, 'print');
+    _.bindAll(this, 'print', 'render');
     MyApp.mediator.on('list_switch', this.print);
+    MyApp.mediator.on('reset', this.render);
+    this.render();
+  },
+  
+  render : function(){
+  	console.log("とんできたrender");
+  	this.$el.html(this.tmpl());
   },
   
   print : function(id){

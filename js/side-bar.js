@@ -9,7 +9,13 @@ MyApp.Views.SideBar = Backbone.View.extend({
   },
   
   initialize: function() {
-    this.$el.html(this.tmpl());
+  	_.bindAll(this,'render');
+    MyApp.mediator.on('reset', this.render);
+    this.render();
+  },
+  
+  render : function(){
+  	this.$el.html(this.tmpl());
   },
   
   clicked : function(event){
