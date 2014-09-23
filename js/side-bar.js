@@ -5,7 +5,7 @@ MyApp.Views.SideBar = Backbone.View.extend({
   tmpl: _.template($("#sidebar_template").html()),
 
   events:{
-  	'click' : 'clicked',
+  	'click li' : 'clicked',
   },
   
   initialize: function() {
@@ -13,8 +13,10 @@ MyApp.Views.SideBar = Backbone.View.extend({
   },
   
   clicked : function(event){
-      event.preventDefault();
-      console.log('hello ' + $(event.currentTarget).data("id"));
+      $("li").removeClass("active");
+      $(event.currentTarget).addClass("active");
+      console.log($(event.currentTarget).index());
   }
 
+  
 });

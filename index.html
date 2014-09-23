@@ -40,19 +40,19 @@
 	<div class="container-fluid">
 		<div class="row">
 		<div class="col-xs-2" id="sidebar"/>
-		<div class="col-xs-10">
-			<h1 id="main1">工事中<h1>
-		</div>
+		<div class="col-xs-10" id="main"/>
 		</div>
 	</div>
 	
 	<!-- templates -->
 	<script type="text/template" id="sidebar_template">
 		<ul class="nav nav-sidebar">
-			<li class="active"><a data-id="m1" id="menu1" href="#">Register</a></li>
-			<li><a data-id="1" id="menu2" href="#">Overview</a></li>
-			<li><a data-id="3" id="menu3"href="#">どう？</a></li>
+			<li class="active" id="menu1"><a href="#">Register</a></li>
+			<li id="menu2"><a href="#">Overview</a></li>
 		</ul>
+	</script>
+	<script type="text/template" id="main_template">
+		<h1>main</h1>
 	</script>
 	
     <!-- Bootstrap core JavaScript
@@ -64,6 +64,7 @@
     <script src="js/lib/backbone.js"></script>
     <script src="js/namespace.js"></script>
     <script src="js/side-bar.js"></script>
+    <script src="js/main-view.js"></script>
     <script src="js/app.js"></script>
     <script>
 	$(function() {
