@@ -10,6 +10,6 @@ MyApp.Views.Navbar = Backbone.View.extend({
   },
 
   reset : function(){
-  	MyApp.mediator.trigger('reset');
+  	Backbone.trigger('reset_view');
   }
 });

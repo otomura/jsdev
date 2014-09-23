@@ -4,8 +4,8 @@ MyApp.Views.MainView = Backbone.View.extend({
   
   initialize: function() {
     _.bindAll(this, 'print', 'render');
-    MyApp.mediator.on('list_switch', this.print);
-    MyApp.mediator.on('reset', this.render);
+    Backbone.on('list_switch', this.print);
+    Backbone.on('reset_view', this.render);
     this.$tmpl1 = _.template($("#main_1").html());
     this.$tmpl2 = _.template($("#main_2").html());
     this.render();

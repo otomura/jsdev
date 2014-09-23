@@ -10,7 +10,7 @@ MyApp.Views.SideBar = Backbone.View.extend({
   
   initialize: function() {
   	_.bindAll(this,'render');
-    MyApp.mediator.on('reset', this.render);
+    Backbone.on('reset_view', this.render);
     this.render();
   },
   
@@ -22,7 +22,7 @@ MyApp.Views.SideBar = Backbone.View.extend({
       $("li").removeClass("active");
       $(event.currentTarget).addClass("active");
       console.log($(event.currentTarget).index());
-      MyApp.mediator.trigger('list_switch', $(event.currentTarget).index());
+      Backbone.trigger('list_switch', $(event.currentTarget).index());
   }
 
   
