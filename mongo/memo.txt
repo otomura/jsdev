@@ -1,0 +1,42 @@
+使用前にデーモンを起動する必要がある
+mongod --dbpath (データの置き場所)
+
+■データベースを使う
+公式
+http://docs.mongodb.org/manual/reference/method/
+コマンドいろいろ
+http://babie.hatenablog.com/entry/20100805/1280982678
+Tips
+https://github.com/syokenz/marunouchi-mongodb/wiki
+
+mongo コマンドで mongo シェルに入る
+>mongo
+
+データベースの指定 use
+> use foo
+
+コレクションの一覧
+> show collecions
+
+オブジェクトの生成 insert (save でもできるが本来は更新用)
+>db.bar.save({text:"hello mongodb", type:"message"})
+bar というコレクション（テーブル）と {text:...} というドキュメント(レコード）を作成している
+
+更新
+findOne で取得したモデルの属性を変更して save に渡すか
+update の第一引数で条件を指定して、第二引数で更新後のデータを入れる
+
+削除は remove の第一引数でクエリを渡す
+id で削除する場合は以下のように
+> doc = db.things.findOne({x: 3})
+> db.things.remove({_id: doc._id})
+
+一覧 find
+>db.bar.find()
+
+ドキュメントの全削除 remove
+>db.bar.remove()
+* コレクション自体は残る
+
+コレクションの削除 drop
+>db.bar.drop()
