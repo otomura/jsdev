@@ -13,7 +13,7 @@ mongo コマンドで mongo シェルに入る
 >mongo
 
 データベースの指定 use
-> use foo
+> use car_database
 
 コレクションの一覧
 > show collecions
@@ -36,6 +36,7 @@ id で削除する場合は以下のように
 
 ドキュメントの全削除 remove
 >db.bar.remove()
+>db.cars.remove()
 * コレクション自体は残る
 
 コレクションの削除 drop

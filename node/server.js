@@ -5,6 +5,7 @@ var mongoose = require('mongoose')
 
 var app = express();
 
+app.use(express.bodyParser());
 app.use(express.static(path.join(application_root, '../')));
 app.get('/', function(req, res){
   res.send('Hello World!');
@@ -39,18 +40,19 @@ app.get('/show',function(req,res){
 	});
 });
 
-app.get('/add',function(req,res){
+app.post('/add',function(req,res){
 	var car = new Car({
-		kind : "hoho",
-		capacity : 5
+		kind : req.body.kind,
+		capacity : req.body.capacity
 	});
-	return car.save(function(err){
+	car.save(function(err){
 		if(!err){
 			return console.log('add!');
 		}else{
 			return console.log(err);
 		}
 	});
+	return res.send(car);
 });
 
 // サービス開始
