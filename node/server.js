@@ -30,7 +30,7 @@ var Car = mongoose.model('car');
 // car_database がデータベース名
 mongoose.connect('mongodb://localhost/car_database');
 
-app.get('/show',function(req,res){
+app.get('/car_collections',function(req,res){
 	return Car.find(function(err,cars){
 		if(!err){
 			return res.send(cars);
@@ -40,7 +40,7 @@ app.get('/show',function(req,res){
 	});
 });
 
-app.post('/add',function(req,res){
+app.post('/car_collections',function(req,res){
 	var car = new Car({
 		kind : req.body.kind,
 		capacity : req.body.capacity
@@ -53,6 +53,17 @@ app.post('/add',function(req,res){
 		}
 	});
 	return res.send(car);
+});
+
+app.post('/:hoge',function(req,res){
+	car.save(function(err){
+		if(!err){
+			return console.log(hoge);
+		}else{
+			return console.log(err);
+		}
+	});
+	return res.send({});
 });
 
 // サービス開始

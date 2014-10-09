@@ -8,8 +8,11 @@ MyApp.Views.MainView = Backbone.View.extend({
 		Backbone.on('sidebar:selected', this.switch_main);
 		Backbone.on('reset_view', this.render);
 
-		this.register_view = new MyApp.Views.MainRegisterView();
-		this.carlist_view = new MyApp.Views.CarListView();
+		var cars = new MyApp.Collections.CarCollection();
+		cars.fetch();
+		console.log(cars);
+		this.register_view = new MyApp.Views.MainRegisterView(cars);
+		this.carlist_view = new MyApp.Views.CarListView(cars);
 		this.render();
 	},
 

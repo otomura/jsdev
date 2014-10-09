@@ -3,7 +3,20 @@ MyApp.Views.MainRegisterView = Backbone.View.extend({
   
   tmpl: _.template($("#main_register").html()),
 
-  initialize: function() {
+  events:{
+    'click #register_submit' : 'addCar'
+  },
+  
+  addCar : function(e) {
+    e.preventDefault();
+    var kind = $('#car-kind').val();
+    var capacity = $('#car-capacity').val();
+    this.collection.create({kind:kind, capacity:capacity});
+  	console.log(JSON.stringify(book));
+  },
+  
+  initialize: function(cars) {
+    this.collection = cars;
     this.render();
   },
   

@@ -3,7 +3,8 @@ MyApp.Views.CarListView = Backbone.View.extend({
   
   tmpl: _.template($("#main_carlistview").html()),
 
-  initialize: function() {
+  initialize: function(cars) {
+    this.collection = cars;
     this.render();
   },
   
