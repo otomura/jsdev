@@ -56,6 +56,19 @@
 	</script>
 	<script type="text/template" id="main_carlistview">
 		<h1>一覧</h1>
+		<table class="table table-bordered">
+		<thead>
+			<tr><th>車種</th><th>定員</th></tr>
+		</thead>
+		<tbody id="car_tbody">
+		</tbody>
+		</table>
+	</script>
+	<script type="text/template" id="row_template">
+		<tr>
+			<td><%= kind %></td>
+			<td><%= capacity %></td>
+		</tr>
 	</script>
 	
     <!-- Bootstrap core JavaScript

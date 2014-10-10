@@ -12,7 +12,8 @@ MyApp.Views.MainRegisterView = Backbone.View.extend({
     var kind = $('#car-kind').val();
     var capacity = $('#car-capacity').val();
     this.collection.create({kind:kind, capacity:capacity});
-  	console.log(JSON.stringify(book));
+    $('#car-kind').val("");
+    $('#car-capacity').val("");
   },
   
   initialize: function(cars) {
@@ -21,7 +22,7 @@ MyApp.Views.MainRegisterView = Backbone.View.extend({
   },
   
   render : function(){
-  	this.$el.html(this.tmpl());
+    this.$el.html(this.tmpl());
   },
   
 });

@@ -9,10 +9,9 @@ MyApp.Views.MainView = Backbone.View.extend({
 		Backbone.on('reset_view', this.render);
 
 		var cars = new MyApp.Collections.CarCollection();
-		cars.fetch();
-		console.log(cars);
 		this.register_view = new MyApp.Views.MainRegisterView(cars);
 		this.carlist_view = new MyApp.Views.CarListView(cars);
+		cars.fetch({reset:true});
 		this.render();
 	},
 
