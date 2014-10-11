@@ -20,14 +20,15 @@ MyApp.Views.MainView = Backbone.View.extend({
 	},
 
 	switch_main : function(id){
-		//console.log("id " + id);
 		if(id == "register"){
 			this.$el.html(this.register_view.el);
+			this.register_view.delegateEvents();
 		}else
 		if(id == "carlist"){
 			this.$el.html(this.carlist_view.el);
+			this.carlist_view.delegateEvents();
 		}else{
-		this.$el.html("工事中");
+			this.$el.html("工事中");
 		}
 	}
 });

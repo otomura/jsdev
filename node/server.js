@@ -55,15 +55,17 @@ app.post('/car_collections',function(req,res){
 	return res.send(car);
 });
 
-app.post('/:hoge',function(req,res){
-	car.save(function(err){
-		if(!err){
-			return console.log(hoge);
-		}else{
-			return console.log(err);
-		}
+app.delete('/car_collections/:id',function(req,res){
+	return Car.findById(req.params.id, function(err,car){
+		return car.remove(function(err){
+			if(!err){
+				console.log('remove');
+				return res.send({});
+			}else{
+				console.log(err);
+			}
+		});
 	});
-	return res.send({});
 });
 
 // サービス開始

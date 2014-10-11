@@ -4,7 +4,7 @@ MyApp.Views.MainRegisterView = Backbone.View.extend({
   tmpl: _.template($("#main_register").html()),
 
   events:{
-    'click #register_submit' : 'addCar'
+    'submit' : 'addCar'
   },
   
   addCar : function(e) {
