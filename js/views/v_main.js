@@ -1,6 +1,7 @@
 define(['jquery','underscore','backbone', 'collections/c_car_collection','views/v_main_register', 'views/v_main_carlist'],
 function($, _, Backbone, CarCollection, MainRegisterView, CarListView){
-	var MainView = Backbone.View.extend({
+	
+	var MainView =  Backbone.View.extend({
 
 		el: "#mainview",
 
@@ -34,5 +35,7 @@ function($, _, Backbone, CarCollection, MainRegisterView, CarListView){
 			}
 		}
 	});
+	
 	return MainView;
+	
 });
