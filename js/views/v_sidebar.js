@@ -1,10 +1,10 @@
-define(['jquery','underscore','backbone'],function($, _, Backbone){
+define(['jquery','underscore','backbone', 'text!templates/sidebar.html'],function($, _, Backbone, sideBarTemplate){
 
 	var SideBar =  Backbone.View.extend({
 
 		el: "#sidebar",
 
-		tmpl: _.template($("#sidebar_template").html()),
+		tmpl: _.template(sideBarTemplate),
 
 		events:{
 			'click li' : 'clicked',

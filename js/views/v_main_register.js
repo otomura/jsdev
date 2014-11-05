@@ -1,10 +1,10 @@
-define(['jquery','underscore','backbone'],function($, _, Backbone){
+define(['jquery','underscore','backbone', 'text!templates/main_register.html'],function($, _, Backbone, mainRegisterTemplate){
 
 	var MainRegisterView =  Backbone.View.extend({
 	
 		tagName : 'div',
 
-		tmpl: _.template($("#main_register").html()),
+		tmpl: _.template(mainRegisterTemplate),
 
 		events:{
 			'submit' : 'addCar'

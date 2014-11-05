@@ -1,10 +1,11 @@
-define(['jquery','underscore','backbone'],function($, _, Backbone){
+define(['jquery','underscore','backbone', 'text!templates/main_carlistview.html', 'text!templates/carlistview_row.html'], 
+	function($, _, Backbone, carListTemplate, carListRowTemplate){
 
 	var CarListView =  Backbone.View.extend({
 
 		tagName : 'div',
 
-		tmpl: _.template($("#main_carlistview").html()),
+		tmpl: _.template(carListTemplate),
 
 		events : {
 			"click #all_delete" : "all_delete"
@@ -31,7 +32,7 @@ define(['jquery','underscore','backbone'],function($, _, Backbone){
 			this.$el.html(this.tmpl());
 			var that = this.$('#car_tbody');
 			this.collection.each(function(model) {
-				that.append(_.template($('#row_template').html(), model.attributes));
+				that.append(_.template(carListRowTemplate, model.attributes));
 			});
 		},
 
